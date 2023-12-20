@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Посещаемость занятий</title>
+    <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+<h1>Посещаемость занятий:</h1>
+<img th:src="@{/images/rsreu.png}" width="150" height="150"/>
+<br>
+<a th:href="@{/lessons/new}">Выставить</a>
+<br>
+<br>
+<table border="1" width="600" cellpadding="5">
+    <tr>
+        <th>Аудитория</th>
+        <th>Студент</th>
+        <th>Предмет</th>
+    </tr>
+    <tr th:each="item : ${lessonsViewList}">
+        <td th:text="${item.getAuditorium()}"></td>
+        <td th:text="${item.getStudentSurname()}"></td>
+        <td th:text="${item.getSubjectTitle()}"></td>
+    </tr>
+</table>
+<br>
+<a th:href="@{/rsreu}">На главную</a>
+</body>
+</html>

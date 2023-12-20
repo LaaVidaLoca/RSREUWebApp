@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление студента</title>
+    <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+<a th:href="@{/students/}">Вернуться</a>
+<h1>Добавление студента</h1>
+<form th:method="POST" th:action="@{/students/new}" th:object="${student}">
+    <label for="name">Введите имя: </label>
+    <input type="text" th:field="*{name}" id="name">
+    <div style="color:red" th:if="${#fields.hasErrors()}" th:errors="*{name}"></div>
+    <br>
+    <label for="surname">Введите фамилию: </label>
+    <input type="text" th:field="*{surname}" id="surname">
+    <div style="color:red" th:if="${#fields.hasErrors()}" th:errors="*{surname}"></div>
+    <br>
+    <input type="submit" value="Добавить"/>
+</form>
+</body>
+</html>

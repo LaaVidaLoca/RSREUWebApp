@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Просмотр студента</title>
+    <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+<h1 align="center" th:text="${student.getName()}+' '+${student.getSurname()}"></h1>
+<img th:src="@{/images/rsreu.png}" width="150" height="150"/>
+<br>
+<table border="1" width="300" cellpadding="5">
+    <tr>
+        <th>Посещаемые дисциплины</th>
+    </tr>
+    <tr th:each="title : ${subjectTitleList}">
+        <td th:text="${title}"></td>
+    </tr>
+</table>
+<br>
+<a th:href="@{/students/}">Вернуться</a>
+</body>
+</html>

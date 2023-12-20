@@ -1,0 +1,29 @@
+body {
+    background-color: #222;
+    color: #fff;
+    font-size: 16px;
+}
+
+a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+a[href] {
+    color: #ff6f00;
+}
+
+a:hover {
+    color: #ccc;
+}
+
+a[href]:hover {
+    color: #ffdbac;
+}
+table {
+    color:white;
+}
+input {
+    margin-bottom: 10px;
+}

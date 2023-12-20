@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Выставление посещаемости</title>
+    <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+<a th:href="@{/lessons/}">Вернуться</a>
+<h1>Выставление посещаемости</h1>
+<form th:method="POST" th:action="@{/lessons/new}" th:object="${lesson}">
+    <label for="auditorium">Введите номер аудитории: </label>
+    <input type="text" th:field="*{auditorium}" id="auditorium">
+    <div style="color:red" th:if="${#fields.hasErrors()}" th:errors="*{auditorium}"></div>
+    <br>
+    <select th:name="studentId">
+        <option th:each = "item : ${studentList}" th:value = "${item.getId()}" th:text="${item.getSurname()}"></option>
+    </select>
+    <select th:name="subjectId">
+        <option th:each = "item : ${subjectList}" th:value = "${item.getId()}" th:text="${item.getTitle()}"></option>
+    </select>
+    <br>
+    <br>
+    <input type="submit" value="Выставить"/>
+</form>
+</body>
+</html>

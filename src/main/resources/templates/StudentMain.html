@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Студенты</title>
+    <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+<h1>Студенты</h1>
+<img th:src="@{/images/rsreu.png}" width="150" height="150"/>
+<br>
+<a th:href="@{/rsreu}">На главную</a>
+<br>
+<br>
+<form th:method="POST" th:action = "@{/students/individual}" >
+    <select th:name="studentId">
+        <option th:each = "item : ${studentList}" th:value = "${item.getId()}" th:text="${item.getSurname()}"></option>
+    </select>
+    <button type="submit">Посетить</button>
+</form>
+<br>
+<a th:href="@{/students/new}">Добавить</a>
+</body>
+</html>

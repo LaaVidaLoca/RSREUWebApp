@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+    <h1 align="center">Главная страница РГРТУ</h1>
+    <img th:src="@{/images/rsreu.png}" width="150" height="150"/>
+    <br>
+    <a th:href="@{/students/}">Список студентов</a>
+    <br>
+    <a th:href="@{/lessons/}">Посещаемость занятий</a>
+    <br>
+    <a th:href="@{/subjects/}">Список дисциплин</a>
+    <p th:text="'Вы вошли как '+${user.getFirstName()}+' '+${user.getLastName()}"></p>
+    <form sec:authorize="isAuthenticated()">
+        <a href="/logout" role="button" aria-disabled="true">Выйти</a>
+    </form>
+</body>
+</html>

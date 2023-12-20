@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: "postgres-container"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: SimpleMVC
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+  myapp:
+    restart: always
+    container_name: "java-app-container"
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    build:
+      context: .
+    environment:
+      DATASOURCE_HOST: db

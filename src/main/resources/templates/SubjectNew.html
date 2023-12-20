@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление предмета</title>
+    <link rel="stylesheet" href="/css/Style.css">
+</head>
+<body>
+<a th:href="@{/subjects/}">Вернуться</a>
+<h1>Добавление предмета</h1>
+<form th:method="POST" th:action="@{/subjects/new}" th:object="${subject}">
+    <label for="title">Введите название: </label>
+    <input type="text" th:field="*{title}" id="title">
+    <div style="color:red" th:if="${#fields.hasErrors()}" th:errors="*{title}"></div>
+    <br>
+    <label>Введите описание</label>
+    <input type="text" th:field="*{description}" id="description">
+    <div style="color:red" th:if="${#fields.hasErrors()}" th:errors="*{description}"></div>
+    <br>
+    <input type="submit" value="Добавить"/>
+</form>
+</body>
+</html>
